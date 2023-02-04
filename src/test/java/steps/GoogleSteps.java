@@ -8,21 +8,25 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import pages.GoogleSearchPage;
 import utils.Driver;
+import utils.TextHandler;
 
 public class GoogleSteps {
 
 
     WebDriver driver;
+    GoogleSearchPage googleSearchPage;
 
     @Before
     public void setup(){
         driver = Driver.getDriver();
+        googleSearchPage = new GoogleSearchPage();
     }
 
     @When("user search for {string}")
     public void user_search_for(String key) {
-       driver.findElement(By.name("q")).sendKeys(key + Keys.ENTER);
+       googleSearchPage.searchInputBox.sendKeys(key + Keys.ENTER);
     }
 
     @Then("user should see {string} in the url")
@@ -39,6 +43,7 @@ public class GoogleSteps {
 
     @Then("user should see results are more than {int}")
     public void userShouldSeeResultsAreMoreThan(int result) {
+        Assert.assertTrue(TextHandler.getLong(googleSearchPage.resultBar.getText().split(" ")[1]) > result);
 
     }
 }
