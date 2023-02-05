@@ -8,8 +8,9 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features" ,
         glue = "steps",
-        tags = "@Regression",
-        dryRun = false
+        tags = "",
+        dryRun = true,
+        monochrome = false
 )
 public class Runner {
 }
