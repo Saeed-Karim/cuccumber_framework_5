@@ -31,5 +31,11 @@ public class TechGlobalDynamicTablesPage extends TechGlobalBasePage{
     @FindBy(css = "table")
     public WebElement table;
 
+    @FindBy(id = "main_heading")
+    public WebElement headingText;
+
+    @FindBy(css = ".delete")
+    public WebElement closeButton;
+
 
 }
