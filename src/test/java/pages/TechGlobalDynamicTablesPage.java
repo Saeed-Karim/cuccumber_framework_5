@@ -38,4 +38,6 @@ public class TechGlobalDynamicTablesPage extends TechGlobalBasePage{
     public WebElement closeButton;
 
 
+
+
 }
